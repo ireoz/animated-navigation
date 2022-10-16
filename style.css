@@ -28,24 +28,25 @@ body {
   left: 0px;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(136, 127, 127, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateX(-100vw);
 }
+
+.overlay-active {
+  transform: translateX(0);
+}
+
+.overlay-hidden {
+  transform: translateX(-100vw);
+  transition-delay: 1.9s;
+}
+
 
 /* --- Navigation Menu ------------------------------ */
 
 .nav {
   height: 100%;
-  transform: translateX(-100%);
-  transition: transform 1s;
-}
-
-
-.nav-slide-right {
-  transform: translateX(0%);
-}
-
-.nav-slide-left {
-  transform: translateX(-100%);
+  
 }
 
 .ul {
@@ -59,8 +60,14 @@ body {
 }
 
 
+/* nav items */
+
+
+
 .list {
   height: 20%;
+  overflow: hidden;
+  transform: translateX(-100vw);
 }
 
 .list a {
@@ -70,32 +77,117 @@ body {
   color: white;
   font-size: 1.5rem;
   letter-spacing: .3rem;
+  text-transform: uppercase;
+  display: block;
 }
 
 .list a:hover {
-  font-size: 1.7rem;
+  transform: scale(1.1);
 }
 
-.nav-1 {
+#nav-1 {
   background-color: var(--navColor1);
 }
 
-.nav-2 {
+#nav-2 {
   background-color: var(--navColor2);
 }
 
-.nav-3 {
+#nav-3 {
   background-color: var(--navColor3);
 }
 
-.nav-4 {
+#nav-4 {
   background-color: var(--navColor4);
 }
 
-.nav-5 {
+#nav-5 {
   background-color: var(--navColor5);
 }
 
+/* nav list animation */
+
+.nav-1-animation {
+  animation-name: nav-animation;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+.nav-2-animation {
+  animation-name: nav-animation;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.nav-3-animation {
+  animation-name: nav-animation;
+  animation-duration: 1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+.nav-4-animation {
+  animation-name: nav-animation;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.nav-5-animation {
+  animation-name: nav-animation;
+  animation-duration: 1s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes nav-animation {
+  from {transform: translateX(-100vw);}
+  to {transform: translateX(0);}
+}
+
+/* navigation animation reverse */
+
+.nav-1-animation-reverse {
+  animation-name: nav-animation-reverse;
+  animation-duration: 1s;
+  animation-delay: 0;
+  animation-fill-mode: both;
+}
+
+.nav-2-animation-reverse {
+  animation-name: nav-animation-reverse;
+  animation-duration: 1s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.nav-3-animation-reverse {
+  animation-name: nav-animation-reverse;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.nav-4-animation-reverse {
+  animation-name: nav-animation-reverse;
+  animation-duration: 1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+.nav-5-animation-reverse {
+  animation-name: nav-animation-reverse;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+@keyframes nav-animation-reverse {
+  from {transform: translateX(0);}
+  to {transform: translateX(-100vw);}
+}
 
 /* --- Menu Bars ------------------------------------ */
 
