@@ -1,12 +1,13 @@
 const hamburger = document.getElementById('hamburger-container');
 const overlay = document.getElementById('overlay');
-const nav = document.getElementById('nav');
+// create nodelist of each anchor link nav item
+const links = document.querySelectorAll('.onClickEvent');
 
-function toggleNavHideShow(x) {
+function toggleMenuBarToHideShowNavItems() {
     // toggle: menu bars open/close
-    x.classList.toggle('change');
+    hamburger.classList.toggle('change');
     // toggle: menu Active
-    x.classList.contains('change') ? displayOverlayAndNavItems([1,2,3,4,5]) : removeOverlayAndNavItems([1,2,3,4,5]); 
+    hamburger.classList.contains('change') ? displayOverlayAndNavItems([1,2,3,4,5]) : removeOverlayAndNavItems([1,2,3,4,5]); 
     }
 
 
@@ -36,4 +37,5 @@ function removeOverlayAndNavItems(navlist) {
 }
 
 
-
+// to hide overlay and induce reverse css animation of nav items when an anchor nav item link is clicked.
+links.forEach(link => link.addEventListener('click', toggleMenuBarToHideShowNavItems));

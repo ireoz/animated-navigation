@@ -13,16 +13,30 @@
       <!-- menu items -->
       <nav class="nav" id="nav">
         <ul class="ul">
-          <li id="nav-1" class="list"><a href="#home">Home</a></li>
-          <li id="nav-2" class="list"><a href="#about">About</a></li>
-          <li id="nav-3" class="list"><a href="#skills">Skills</a></li>
-          <li id="nav-4" class="list"><a href="#projects">Projects</a></li>
-          <li id="nav-5" class="list"><a href="#contact">Contact</a></li>
+          <li id="nav-1" class="list">
+            <a class="onClickEvent" href="#home">Home</a>
+          </li>
+          <li id="nav-2" class="list">
+            <a class="onClickEvent" href="#about">About</a>
+          </li>
+          <li id="nav-3" class="list">
+            <a class="onClickEvent" href="#skills">Skills</a>
+          </li>
+          <li id="nav-4" class="list">
+            <a class="onClickEvent" href="#projects">Projects</a>
+          </li>
+          <li id="nav-5" class="list">
+            <a class="onClickEvent" href="#contact">Contact</a>
+          </li>
         </ul>
       </nav>
     </div>
     <!-- hamburger menu -->
-    <div class="hamburger-container" onclick="toggleNavHideShow(this)">
+    <div
+      class="hamburger-container"
+      id="hamburger-container"
+      onclick="toggleMenuBarToHideShowNavItems()"
+    >
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>

@@ -38,7 +38,7 @@ body {
 
 .overlay-hidden {
   transform: translateX(-100vw);
-  transition-delay: 1.9s;
+  transition-delay: 1.95s;
 }
 
 
