@@ -1,45 +1,39 @@
 const hamburger = document.getElementById('hamburger-container');
 const overlay = document.getElementById('overlay');
 const nav = document.getElementById('nav');
-const nav1 = document.getElementById('nav-1');
-const nav2 = document.getElementById('nav-2');
-const nav3 = document.getElementById('nav-3');
-const nav4 = document.getElementById('nav-4');
-const nav5 = document.getElementById('nav-5');
 
 function toggleNavHideShow(x) {
     // toggle: menu bars open/close
     x.classList.toggle('change');
     // toggle: menu Active
-    x.classList.contains('change') ? displayOverlayAndNavItems() : removeOverlayAndNavItems(); 
+    x.classList.contains('change') ? displayOverlayAndNavItems([1,2,3,4,5]) : removeOverlayAndNavItems([1,2,3,4,5]); 
     }
 
-function displayOverlayAndNavItems() {
+
+function displayOverlayAndNavItems(navList) {
+    // display overlay 
     overlay.classList.contains('overlay-hidden') ? (overlay.classList.remove('overlay-hidden'), overlay.classList.add('overlay-active')) : overlay.classList.add('overlay-active');
+    // For each loop to iterate over each nav item (nav-1...nav-5) 
+    navList.forEach(item => {
+        // get each nav item element within the DOM
+        let nav = document.getElementById(`nav-${item}`); 
+        // set class on each nav item element to apply css animation.
+        nav.classList.contains(`nav-${item}-animation-reverse`) ? nav.classList.replace(`nav-${item}-animation-reverse`, `nav-${item}-animation`) : nav.classList.add(`nav-${item}-animation`);    
+    })
+};
 
-    nav1.classList.contains('nav-1-animation-reverse') ? (nav1.classList.remove('nav-1-animation-reverse'), nav1.classList.add('nav-1-animation')) : nav1.classList.add('nav-1-animation');
-    nav2.classList.contains('nav-2-animation-reverse') ? (nav2.classList.remove('nav-2-animation-reverse'), nav2.classList.add('nav-2-animation')) : nav2.classList.add('nav-2-animation');
-    nav3.classList.contains('nav-3-animation-reverse') ? (nav3.classList.remove('nav-3-animation-reverse'), nav3.classList.add('nav-3-animation')) : nav3.classList.add('nav-3-animation');
-    nav4.classList.contains('nav-4-animation-reverse') ? (nav4.classList.remove('nav-4-animation-reverse'), nav4.classList.add('nav-4-animation')) : nav4.classList.add('nav-4-animation');
-    nav5.classList.contains('nav-5-animation-reverse') ? (nav5.classList.remove('nav-5-animation-reverse'), nav5.classList.add('nav-5-animation')) : nav5.classList.add('nav-5-animation');
+
+function removeOverlayAndNavItems(navlist) {
+    // update class to hide overlay
+    overlay.classList.replace('overlay-active', 'overlay-hidden');
+    //  For each look to iterate over each nav item (nav-1...nav-5)
+    navlist.forEach(item => {
+        // get each nav item element within the DOM
+        let nav = document.getElementById(`nav-${item}`);
+        // set class on each nav item element to apply reverse css animation.
+        nav.classList.replace(`nav-${item}-animation`, `nav-${item}-animation-reverse`);
+    })
 }
 
-function removeOverlayAndNavItems() {
-    overlay.classList.remove('overlay-active');
-    overlay.classList.add('overlay-hidden');
-    // nav 1 item
-    nav1.classList.add('nav-1-animation-reverse');
-    nav1.classList.remove('nav-1-animation');
-    // nav 2 item
-    nav2.classList.add('nav-2-animation-reverse');
-    nav2.classList.remove('nav-2-animation');
-    // nav 3 item
-    nav3.classList.add('nav-3-animation-reverse');
-    nav3.classList.remove('nav-3-animation');
-    // nav 4 item
-    nav4.classList.add('nav-4-animation-reverse');
-    nav4.classList.remove('nav-4-animation');
-    // nav 5 item
-    nav5.classList.add('nav-5-animation-reverse');
-    nav5.classList.remove('nav-5-animation');
-}
+
+
