@@ -25,9 +25,11 @@ function displayOverlayAndNavItems(navList) {
 
 
 function removeOverlayAndNavItems(navlist) {
-    // update class to hide overlay
+    // if function is triggered by 'click' event listener on anchor nav links we must also remove change class from hamburger js variable element.
+    if(hamburger.classList.contains('change')) hamburger.classList.remove('change')
+    // replace class on overlay js variable element to hide html overlay
     overlay.classList.replace('overlay-active', 'overlay-hidden');
-    //  For each look to iterate over each nav item (nav-1...nav-5)
+    //  For each loop to iterate over each nav item (nav-1...nav-5)
     navlist.forEach(item => {
         // get each nav item element within the DOM
         let nav = document.getElementById(`nav-${item}`);
@@ -38,4 +40,6 @@ function removeOverlayAndNavItems(navlist) {
 
 
 // to hide overlay and induce reverse css animation of nav items when an anchor nav item link is clicked.
-links.forEach(link => link.addEventListener('click', toggleMenuBarToHideShowNavItems));
+links.forEach(link => link.addEventListener('click', () => {
+    removeOverlayAndNavItems([1,2,3,4,5])
+}));
